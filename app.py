@@ -7,16 +7,17 @@ import requests
 import time
 from flask_cors import CORS
 from datetime import datetime, timedelta
+import logging
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
-# Database configuration
+logging.basicConfig(level=logging.INFO)
+
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://neondb_owner:npg_vH7FTAlr5hLd@ep-autumn-cell-a1giggcu-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require')
 API_KEY = "AIzaSyCr1sfsW7LhMeodPJv7I_4ddAfaZMvqyiU"
 ENGINE_ID = "63dd1934e204e4745"
 
-# Create a connection pool
 try:
     postgres_pool = psycopg2.pool.ThreadedConnectionPool(
         minconn=1,
@@ -24,21 +25,17 @@ try:
         dsn=DATABASE_URL,
         sslmode='require'
     )
-    print("Connection pool created successfully")
+    logging.info("Connection pool created successfully")
 except Exception as e:
-    print("Error creating connection pool:", e)
+    logging.error("Error creating connection pool: %s", e)
     raise
 
-# Initialize database tables and indexes
 def initialize_database():
     conn = None
     try:
         conn = postgres_pool.getconn()
         with conn.cursor() as cursor:
-            # Start transaction
             conn.autocommit = False
-            
-            # Create jobs table if not exists
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS jobs (
                     id SERIAL PRIMARY KEY,
@@ -54,73 +51,51 @@ def initialize_database():
                     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
                 )
             """)
-            
-            # Verify UNIQUE constraint exists
             cursor.execute("""
                 SELECT conname FROM pg_constraint 
                 WHERE conrelid = 'jobs'::regclass AND contype = 'u'
             """)
             constraints = cursor.fetchall()
-            
             if not constraints:
                 cursor.execute("ALTER TABLE jobs ADD CONSTRAINT jobs_link_key UNIQUE (link)")
-            
-            # Create indexes if not exists
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_jobs_title ON jobs(title)
-            """)
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_jobs_company ON jobs(company)
-            """)
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_jobs_location ON jobs(location)
-            """)
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_jobs_source ON jobs(source)
-            """)
-            
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_jobs_title ON jobs(title)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_jobs_company ON jobs(company)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_jobs_location ON jobs(location)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_jobs_source ON jobs(source)")
             conn.commit()
-            print("Database initialized and verified")
+            logging.info("Database initialized and verified")
             return True
-            
     except Exception as e:
         if conn:
             conn.rollback()
-        print("Database initialization failed:", e)
+        logging.error("Database initialization failed: %s", e)
         raise
     finally:
         if conn:
             postgres_pool.putconn(conn)
 
-# Cleanup old jobs
 def cleanup_old_jobs():
     conn = None
     try:
         conn = postgres_pool.getconn()
         with conn.cursor() as cursor:
-            cursor.execute(
-                "DELETE FROM jobs WHERE posted_date < NOW() - INTERVAL '30 DAYS'"
-            )
+            cursor.execute("DELETE FROM jobs WHERE posted_date < NOW() - INTERVAL '30 DAYS'")
             conn.commit()
-            print(f"Cleaned up {cursor.rowcount} old jobs")
+            logging.info("Cleaned up %s old jobs", cursor.rowcount)
     except Exception as e:
-        print("Cleanup failed:", e)
+        logging.error("Cleanup failed: %s", e)
     finally:
         if conn:
             postgres_pool.putconn(conn)
 
-# Store jobs in database
 def store_jobs(jobs_data, source="google"):
     conn = None
     try:
         conn = postgres_pool.getconn()
         with conn.cursor() as cursor:
-            # Start transaction
             conn.autocommit = False
-            
             inserted_count = 0
             duplicates_count = 0
-            
             for job in jobs_data:
                 try:
                     cursor.execute("""
@@ -135,32 +110,27 @@ def store_jobs(jobs_data, source="google"):
                         job.get('career_url'),
                         source
                     ))
-                    
                     if cursor.fetchone():
                         inserted_count += 1
                     else:
                         duplicates_count += 1
-                        
                 except Exception as e:
-                    print(f"Error inserting job {job.get('career_url')}: {e}")
+                    logging.warning("Error inserting job %s: %s", job.get('career_url'), e)
                     continue
-            
             conn.commit()
             return {
                 "new_jobs": inserted_count,
                 "duplicates": duplicates_count
             }
-            
     except Exception as e:
         if conn:
             conn.rollback()
-        print("Error storing jobs:", e)
+        logging.error("Error storing jobs: %s", e)
         raise
     finally:
         if conn:
             postgres_pool.putconn(conn)
 
-# Fetch jobs from database
 def fetch_jobs(role=None, location=None, source=None, limit=100):
     conn = None
     try:
@@ -168,50 +138,36 @@ def fetch_jobs(role=None, location=None, source=None, limit=100):
         with conn.cursor(cursor_factory=extras.DictCursor) as cursor:
             query = "SELECT * FROM jobs WHERE 1=1"
             params = []
-            
             if role:
                 query += " AND title ILIKE %s"
                 params.append(f"%{role}%")
-            
             if location:
                 query += " AND location ILIKE %s"
                 params.append(f"%{location}%")
-            
             if source:
                 query += " AND source = %s"
                 params.append(source)
-            
             query += " ORDER BY posted_date DESC LIMIT %s"
             params.append(limit)
-            
             cursor.execute(query, params)
             jobs = cursor.fetchall()
-            
-            # Convert to list of dictionaries
             return [dict(job) for job in jobs]
-            
     except Exception as e:
-        print("Error fetching jobs:", e)
+        logging.error("Error fetching jobs: %s", e)
         raise
     finally:
         if conn:
             postgres_pool.putconn(conn)
 
-# API Endpoints
 @app.route('/search-careers', methods=['GET'])
 def search_careers():
     role = request.args.get('role')
     city = request.args.get('city')
-
     if not role or not city:
         return jsonify({"error": "Please provide both 'role' and 'city' query parameters."}), 400
-
     query = f"{role} jobs in {city}"
     results = get_google_api_results(query)
-    
-    # Store the results in database
     storage_result = store_jobs(results, source="google")
-    
     return jsonify({
         "query": query,
         "results_count": len(results),
@@ -225,7 +181,6 @@ def get_jobs():
     location = request.args.get('location')
     source = request.args.get('source')
     limit = request.args.get('limit', default=100, type=int)
-    
     try:
         jobs = fetch_jobs(role, location, source, limit)
         return jsonify({
@@ -235,8 +190,6 @@ def get_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Your existing Google API functions
-# Your existing Google API functions
 def get_company_name_from_url(url):
     try:
         parsed_url = urlparse(url)
@@ -254,7 +207,6 @@ def get_google_api_results(query, pages=10):
     base_url = "https://www.googleapis.com/customsearch/v1"
     all_results = []
     seen_urls = set()
-
     for i in range(pages):
         start_index = i * 10 + 1
         params = {
@@ -264,25 +216,19 @@ def get_google_api_results(query, pages=10):
             'start': start_index,
             'num': 10
         }
-
         try:
             response = requests.get(base_url, params=params)
             response.raise_for_status()
             data = response.json()
-
             if 'items' not in data:
                 break
-
             for item in data['items']:
                 link = item.get('link')
                 title = item.get('title', '').strip()
-
                 if not link or link in seen_urls:
                     continue
-
                 if any(x in link for x in ['linkedin.com', 'naukri.com', 'indeed.com', 'glassdoor.com']):
                     continue
-
                 if any(x in link.lower() for x in ['careers', 'jobs', 'join-us', 'hiring']):
                     company_name = get_company_name_from_url(link)
                     all_results.append({
@@ -291,18 +237,13 @@ def get_google_api_results(query, pages=10):
                         "career_url": link
                     })
                     seen_urls.add(link)
-
             time.sleep(1.5)
-
         except Exception as e:
-            print(f"Error: {e}")
+            logging.warning("Google API error: %s", e)
             break
-
     return all_results
+
 if __name__ == '__main__':
-    # Initialize database on startup
     initialize_database()
-    # Cleanup old jobs
     cleanup_old_jobs()
-    
     app.run(host='0.0.0.0', port=8082, debug=True)

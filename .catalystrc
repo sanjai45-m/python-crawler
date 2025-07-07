@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "19358000000010151",
+      "name": "python-crawler",
+      "domain": {
+        "id": "50029181293",
+        "name": "python-crawler-60043472505.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60043472505",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
