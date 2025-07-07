@@ -1,8 +1,15 @@
 {
+  "project_name": "hr-crawler",
+  "project_version": "1.0.0",
+  "app_type": "appsail",
   "appsail": [
     {
-      "source": "appsail-python",
-      "name": "hr-crawler"
+      "name": "hr-crawler",
+      "platform": "python",
+      "entry": "appsail-python/app.py",
+      "build": {
+        "predeploy": "python -m pip install -r appsail-python/requirements.txt -t appsail-python/ --upgrade"
+      }
     }
   ]
 }
