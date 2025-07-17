@@ -9,8 +9,10 @@ from flask_cors import CORS
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-CORS(app)
+from flask_cors import CORS
 
+# Allow all origins, methods, and headers
+CORS(app, origins="*")
 # Database configuration
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://neondb_owner:npg_vH7FTAlr5hLd@ep-autumn-cell-a1giggcu-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require')
 API_KEY = "AIzaSyCr1sfsW7LhMeodPJv7I_4ddAfaZMvqyiU"

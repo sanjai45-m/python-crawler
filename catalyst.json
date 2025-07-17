@@ -1,0 +1,15 @@
+{
+  "appsail": [
+    {
+      "source": "appsail-python",
+      "name": "python-crawler",
+      "predeploy": "python -m pip install -r requirements.txt --user",
+      "runtime": "python39",
+      "env_variables": {
+        "PYTHON_ENV": "production",
+        "LOG_LEVEL": "INFO"
+      },
+      "entrypoint": "python app.py"
+    }
+  ]
+}

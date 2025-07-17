@@ -1,0 +1,540 @@
+[debug] [2025-07-07T12:45:10.920Z] : 
+[debug] [2025-07-07T12:45:10.922Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:45:10.922Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2025-07-07T12:45:10.923Z] : CLI Version:  1.19.0
+[debug] [2025-07-07T12:45:10.923Z] : Platform:     win32
+[debug] [2025-07-07T12:45:10.923Z] : Node Version: v22.11.0
+[debug] [2025-07-07T12:45:10.923Z] : Time:         Mon Jul 07 2025 18:15:10 GMT+0530 (India Standard Time)
+[debug] [2025-07-07T12:45:10.923Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:45:10.923Z] : 
+[debug] [2025-07-07T12:45:11.301Z] : > authorizing via signed-in user option
+[debug] [2025-07-07T12:45:11.302Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2025-07-07T12:45:11.313Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011 
+
+[debug] [2025-07-07T12:45:11.461Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:45:11 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:45:11.465Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011/environment 
+
+[debug] [2025-07-07T12:45:11.505Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:45:11 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2025-07-07T12:45:11.562Z] : 
+[info] [2025-07-07T12:45:11.562Z] : Executing predeploy script in D:\pdf-extract\pythonResumeReaderBackend-main\appsail-python
+[debug] [2025-07-07T12:45:11.562Z] : Executing command > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[info] [2025-07-07T12:45:11.562Z] : > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[debug] [2025-07-07T12:45:11.862Z] : CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58) {
+  status: 500,
+  exit: 1,
+  original: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":6924,"stdout":null,"stderr":null,"error":null}
+      at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+      at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+      at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+      at Generator.next (<anonymous>)
+      at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58),
+  context: undefined,
+  errorId: 'EXEC-SCRIPT-4',
+  arg: [
+    '\x1B[1mpredeploy\x1B[22m',
+    '\x1B[3m\x1B[31m{\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "status": 9009,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "signal": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "output": [\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  ],\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "pid": 6924,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stdout": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stderr": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "error": null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m}\x1B[39m\x1B[23m'
+  ],
+  skipHelp: false,
+  fileName: 'C:\\Users\\Abcom\\AppData\\Roaming\\npm\\node_modules\\zcatalyst-cli\\lib\\execute-script'
+}
+[warn] [2025-07-07T12:45:11.863Z] : ‼ Deploy of AppSail [python-crawler] was unsuccessful since The script exited with code greater than 0 or an error
+[info] [2025-07-07T12:45:11.864Z] : 
+[error] [2025-07-07T12:45:11.864Z] : × appsail: deploy skipped
+[info] [2025-07-07T12:45:11.864Z] : 
+[error] [2025-07-07T12:45:11.864Z] : × No components deployed!
+[info] [2025-07-07T12:45:11.868Z] : 
+[error] [2025-07-07T12:45:11.868Z] : × Error: The script predeploy exited with the exit code greater than 0 or with an error.
+[debug] [2025-07-07T12:45:11.869Z] : Error Stack: CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:45:11.869Z] : Original Error: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":6924,"stdout":null,"stderr":null,"error":null}
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:45:11.869Z] : Error Status: 500
+[info] [2025-07-07T12:45:11.870Z] : 
+[error] [2025-07-07T12:45:11.871Z] : Execution Info: 
+{
+  "status": 9009,
+  "signal": null,
+  "output": [
+    null,
+    null,
+    null
+  ],
+  "pid": 6924,
+  "stdout": null,
+  "stderr": null,
+  "error": null
+}
+[info] [2025-07-07T12:45:11.871Z] : 
+[error] [2025-07-07T12:45:11.871Z] : REF: https://www.zoho.com/catalyst/help/scripts.html#Run
+[debug] [2025-07-07T12:45:11.872Z] : EXEC ENDED with event: deploy, message: success
+[debug] [2025-07-07T12:45:11.872Z] : TOTAL DURATION OF COMMAND EXEC : 575
+[debug] [2025-07-07T12:45:11.879Z] : >>>> HTTP REQUEST : POST https://api.catalyst.zoho.in/baas/v1/cli/logs 
+<request body omitted>
+
+[debug] [2025-07-07T12:45:11.960Z] : <<<< HTTP RESPONSE : 400
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:45:12 GMT","content-type":"application/json;charset=ISO-8859-1","content-length":"128","connection":"keep-alive","x-content-type-options":"nosniff","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:45:11.961Z] : Response Body : {"status":"failure","data":{"error_code":"INVALID_INPUT","message":"either the request body or parameters is in wrong format"}}
+
+[debug] [2025-07-07T12:45:11.962Z] : Unable to send debug log to server: HTTP Error: 400, either the request body or parameters is in wrong format
+[debug] [2025-07-07T12:46:23.960Z] : 
+[debug] [2025-07-07T12:46:23.962Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:46:23.962Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2025-07-07T12:46:23.963Z] : CLI Version:  1.19.0
+[debug] [2025-07-07T12:46:23.963Z] : Platform:     win32
+[debug] [2025-07-07T12:46:23.963Z] : Node Version: v22.11.0
+[debug] [2025-07-07T12:46:23.963Z] : Time:         Mon Jul 07 2025 18:16:23 GMT+0530 (India Standard Time)
+[debug] [2025-07-07T12:46:23.963Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:46:23.963Z] : 
+[debug] [2025-07-07T12:46:24.346Z] : > authorizing via signed-in user option
+[debug] [2025-07-07T12:46:24.346Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2025-07-07T12:46:24.359Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011 
+
+[debug] [2025-07-07T12:46:24.507Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:46:24 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:46:24.511Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011/environment 
+
+[debug] [2025-07-07T12:46:24.543Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:46:24 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2025-07-07T12:46:24.558Z] : 
+[info] [2025-07-07T12:46:24.558Z] : Executing predeploy script in D:\pdf-extract\pythonResumeReaderBackend-main\appsail-python
+[debug] [2025-07-07T12:46:24.558Z] : Executing command > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[info] [2025-07-07T12:46:24.559Z] : > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[debug] [2025-07-07T12:46:24.749Z] : CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58) {
+  status: 500,
+  exit: 1,
+  original: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":33276,"stdout":null,"stderr":null,"error":null}
+      at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+      at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+      at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+      at Generator.next (<anonymous>)
+      at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58),
+  context: undefined,
+  errorId: 'EXEC-SCRIPT-4',
+  arg: [
+    '\x1B[1mpredeploy\x1B[22m',
+    '\x1B[3m\x1B[31m{\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "status": 9009,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "signal": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "output": [\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  ],\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "pid": 33276,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stdout": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stderr": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "error": null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m}\x1B[39m\x1B[23m'
+  ],
+  skipHelp: false,
+  fileName: 'C:\\Users\\Abcom\\AppData\\Roaming\\npm\\node_modules\\zcatalyst-cli\\lib\\execute-script'
+}
+[warn] [2025-07-07T12:46:24.750Z] : ‼ Deploy of AppSail [python-crawler] was unsuccessful since The script exited with code greater than 0 or an error
+[info] [2025-07-07T12:46:24.751Z] : 
+[error] [2025-07-07T12:46:24.752Z] : × appsail: deploy skipped
+[info] [2025-07-07T12:46:24.752Z] : 
+[error] [2025-07-07T12:46:24.753Z] : × No components deployed!
+[info] [2025-07-07T12:46:24.755Z] : 
+[error] [2025-07-07T12:46:24.756Z] : × Error: The script predeploy exited with the exit code greater than 0 or with an error.
+[debug] [2025-07-07T12:46:24.756Z] : Error Stack: CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:46:24.756Z] : Original Error: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":33276,"stdout":null,"stderr":null,"error":null}
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:46:24.756Z] : Error Status: 500
+[info] [2025-07-07T12:46:24.756Z] : 
+[error] [2025-07-07T12:46:24.756Z] : Execution Info: 
+{
+  "status": 9009,
+  "signal": null,
+  "output": [
+    null,
+    null,
+    null
+  ],
+  "pid": 33276,
+  "stdout": null,
+  "stderr": null,
+  "error": null
+}
+[info] [2025-07-07T12:46:24.757Z] : 
+[error] [2025-07-07T12:46:24.757Z] : REF: https://www.zoho.com/catalyst/help/scripts.html#Run
+[debug] [2025-07-07T12:46:24.757Z] : EXEC ENDED with event: deploy, message: success
+[debug] [2025-07-07T12:46:24.757Z] : TOTAL DURATION OF COMMAND EXEC : 420
+[debug] [2025-07-07T12:46:24.764Z] : >>>> HTTP REQUEST : POST https://api.catalyst.zoho.in/baas/v1/cli/logs 
+<request body omitted>
+
+[debug] [2025-07-07T12:46:24.843Z] : <<<< HTTP RESPONSE : 400
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:46:25 GMT","content-type":"application/json;charset=ISO-8859-1","content-length":"128","connection":"keep-alive","x-content-type-options":"nosniff","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:46:24.844Z] : Response Body : {"status":"failure","data":{"error_code":"INVALID_INPUT","message":"either the request body or parameters is in wrong format"}}
+
+[debug] [2025-07-07T12:46:24.845Z] : Unable to send debug log to server: HTTP Error: 400, either the request body or parameters is in wrong format
+[debug] [2025-07-07T12:48:38.786Z] : 
+[debug] [2025-07-07T12:48:38.788Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:48:38.788Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2025-07-07T12:48:38.789Z] : CLI Version:  1.19.0
+[debug] [2025-07-07T12:48:38.789Z] : Platform:     win32
+[debug] [2025-07-07T12:48:38.789Z] : Node Version: v22.11.0
+[debug] [2025-07-07T12:48:38.789Z] : Time:         Mon Jul 07 2025 18:18:38 GMT+0530 (India Standard Time)
+[debug] [2025-07-07T12:48:38.789Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:48:38.790Z] : 
+[debug] [2025-07-07T12:48:39.149Z] : > authorizing via signed-in user option
+[debug] [2025-07-07T12:48:39.150Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2025-07-07T12:48:39.162Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011 
+
+[debug] [2025-07-07T12:48:39.308Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:48:39 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:48:39.312Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011/environment 
+
+[debug] [2025-07-07T12:48:39.350Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:48:39 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2025-07-07T12:48:39.365Z] : 
+[info] [2025-07-07T12:48:39.365Z] : Executing predeploy script in D:\pdf-extract\pythonResumeReaderBackend-main\appsail-python
+[debug] [2025-07-07T12:48:39.365Z] : Executing command > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[info] [2025-07-07T12:48:39.365Z] : > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[debug] [2025-07-07T12:48:39.524Z] : CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58) {
+  status: 500,
+  exit: 1,
+  original: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":32812,"stdout":null,"stderr":null,"error":null}
+      at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+      at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+      at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+      at Generator.next (<anonymous>)
+      at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58),
+  context: undefined,
+  errorId: 'EXEC-SCRIPT-4',
+  arg: [
+    '\x1B[1mpredeploy\x1B[22m',
+    '\x1B[3m\x1B[31m{\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "status": 9009,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "signal": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "output": [\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  ],\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "pid": 32812,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stdout": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stderr": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "error": null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m}\x1B[39m\x1B[23m'
+  ],
+  skipHelp: false,
+  fileName: 'C:\\Users\\Abcom\\AppData\\Roaming\\npm\\node_modules\\zcatalyst-cli\\lib\\execute-script'
+}
+[warn] [2025-07-07T12:48:39.525Z] : ‼ Deploy of AppSail [python-crawler] was unsuccessful since The script exited with code greater than 0 or an error
+[info] [2025-07-07T12:48:39.525Z] : 
+[error] [2025-07-07T12:48:39.525Z] : × appsail: deploy skipped
+[info] [2025-07-07T12:48:39.525Z] : 
+[error] [2025-07-07T12:48:39.526Z] : × No components deployed!
+[info] [2025-07-07T12:48:39.528Z] : 
+[error] [2025-07-07T12:48:39.528Z] : × Error: The script predeploy exited with the exit code greater than 0 or with an error.
+[debug] [2025-07-07T12:48:39.528Z] : Error Stack: CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:48:39.529Z] : Original Error: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":32812,"stdout":null,"stderr":null,"error":null}
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:48:39.529Z] : Error Status: 500
+[info] [2025-07-07T12:48:39.529Z] : 
+[error] [2025-07-07T12:48:39.529Z] : Execution Info: 
+{
+  "status": 9009,
+  "signal": null,
+  "output": [
+    null,
+    null,
+    null
+  ],
+  "pid": 32812,
+  "stdout": null,
+  "stderr": null,
+  "error": null
+}
+[info] [2025-07-07T12:48:39.529Z] : 
+[error] [2025-07-07T12:48:39.529Z] : REF: https://www.zoho.com/catalyst/help/scripts.html#Run
+[debug] [2025-07-07T12:48:39.530Z] : EXEC ENDED with event: deploy, message: success
+[debug] [2025-07-07T12:48:39.530Z] : TOTAL DURATION OF COMMAND EXEC : 387
+[debug] [2025-07-07T12:48:39.539Z] : >>>> HTTP REQUEST : POST https://api.catalyst.zoho.in/baas/v1/cli/logs 
+<request body omitted>
+
+[debug] [2025-07-07T12:48:39.620Z] : <<<< HTTP RESPONSE : 400
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:48:39 GMT","content-type":"application/json;charset=ISO-8859-1","content-length":"128","connection":"keep-alive","x-content-type-options":"nosniff","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:48:39.621Z] : Response Body : {"status":"failure","data":{"error_code":"INVALID_INPUT","message":"either the request body or parameters is in wrong format"}}
+
+[debug] [2025-07-07T12:48:39.622Z] : Unable to send debug log to server: HTTP Error: 400, either the request body or parameters is in wrong format
+[debug] [2025-07-07T12:49:16.754Z] : 
+[debug] [2025-07-07T12:49:16.756Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:49:16.756Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2025-07-07T12:49:16.756Z] : CLI Version:  1.19.0
+[debug] [2025-07-07T12:49:16.756Z] : Platform:     win32
+[debug] [2025-07-07T12:49:16.757Z] : Node Version: v22.11.0
+[debug] [2025-07-07T12:49:16.757Z] : Time:         Mon Jul 07 2025 18:19:16 GMT+0530 (India Standard Time)
+[debug] [2025-07-07T12:49:16.757Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:49:16.757Z] : 
+[debug] [2025-07-07T12:49:17.110Z] : > authorizing via signed-in user option
+[debug] [2025-07-07T12:49:17.110Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2025-07-07T12:49:17.123Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011 
+
+[debug] [2025-07-07T12:49:17.268Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:49:17 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:49:17.271Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011/environment 
+
+[debug] [2025-07-07T12:49:17.303Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:49:17 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2025-07-07T12:49:17.318Z] : 
+[info] [2025-07-07T12:49:17.318Z] : Executing predeploy script in D:\pdf-extract\pythonResumeReaderBackend-main\appsail-python
+[debug] [2025-07-07T12:49:17.319Z] : Executing command > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[info] [2025-07-07T12:49:17.319Z] : > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[debug] [2025-07-07T12:49:17.472Z] : CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58) {
+  status: 500,
+  exit: 1,
+  original: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":21556,"stdout":null,"stderr":null,"error":null}
+      at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+      at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+      at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+      at Generator.next (<anonymous>)
+      at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58),
+  context: undefined,
+  errorId: 'EXEC-SCRIPT-4',
+  arg: [
+    '\x1B[1mpredeploy\x1B[22m',
+    '\x1B[3m\x1B[31m{\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "status": 9009,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "signal": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "output": [\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  ],\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "pid": 21556,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stdout": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stderr": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "error": null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m}\x1B[39m\x1B[23m'
+  ],
+  skipHelp: false,
+  fileName: 'C:\\Users\\Abcom\\AppData\\Roaming\\npm\\node_modules\\zcatalyst-cli\\lib\\execute-script'
+}
+[warn] [2025-07-07T12:49:17.472Z] : ‼ Deploy of AppSail [python-crawler] was unsuccessful since The script exited with code greater than 0 or an error
+[info] [2025-07-07T12:49:17.473Z] : 
+[error] [2025-07-07T12:49:17.473Z] : × appsail: deploy skipped
+[info] [2025-07-07T12:49:17.473Z] : 
+[error] [2025-07-07T12:49:17.474Z] : × No components deployed!
+[info] [2025-07-07T12:49:17.476Z] : 
+[error] [2025-07-07T12:49:17.477Z] : × Error: The script predeploy exited with the exit code greater than 0 or with an error.
+[debug] [2025-07-07T12:49:17.477Z] : Error Stack: CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:49:17.477Z] : Original Error: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":21556,"stdout":null,"stderr":null,"error":null}
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:49:17.477Z] : Error Status: 500
+[info] [2025-07-07T12:49:17.477Z] : 
+[error] [2025-07-07T12:49:17.477Z] : Execution Info: 
+{
+  "status": 9009,
+  "signal": null,
+  "output": [
+    null,
+    null,
+    null
+  ],
+  "pid": 21556,
+  "stdout": null,
+  "stderr": null,
+  "error": null
+}
+[info] [2025-07-07T12:49:17.477Z] : 
+[error] [2025-07-07T12:49:17.478Z] : REF: https://www.zoho.com/catalyst/help/scripts.html#Run
+[debug] [2025-07-07T12:49:17.478Z] : EXEC ENDED with event: deploy, message: success
+[debug] [2025-07-07T12:49:17.478Z] : TOTAL DURATION OF COMMAND EXEC : 377
+[debug] [2025-07-07T12:49:17.486Z] : >>>> HTTP REQUEST : POST https://api.catalyst.zoho.in/baas/v1/cli/logs 
+<request body omitted>
+
+[debug] [2025-07-07T12:49:17.583Z] : <<<< HTTP RESPONSE : 400
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:49:17 GMT","content-type":"application/json;charset=ISO-8859-1","content-length":"128","connection":"keep-alive","x-content-type-options":"nosniff","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:49:17.584Z] : Response Body : {"status":"failure","data":{"error_code":"INVALID_INPUT","message":"either the request body or parameters is in wrong format"}}
+
+[debug] [2025-07-07T12:49:17.584Z] : Unable to send debug log to server: HTTP Error: 400, either the request body or parameters is in wrong format
+[debug] [2025-07-07T12:50:06.316Z] : 
+[debug] [2025-07-07T12:50:06.318Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:50:06.319Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2025-07-07T12:50:06.319Z] : CLI Version:  1.19.0
+[debug] [2025-07-07T12:50:06.319Z] : Platform:     win32
+[debug] [2025-07-07T12:50:06.319Z] : Node Version: v22.11.0
+[debug] [2025-07-07T12:50:06.319Z] : Time:         Mon Jul 07 2025 18:20:06 GMT+0530 (India Standard Time)
+[debug] [2025-07-07T12:50:06.319Z] : ----------------------------------------------------------------------
+[debug] [2025-07-07T12:50:06.320Z] : 
+[debug] [2025-07-07T12:50:06.766Z] : > authorizing via signed-in user option
+[debug] [2025-07-07T12:50:06.766Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2025-07-07T12:50:06.779Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011 
+
+[debug] [2025-07-07T12:50:06.985Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:50:07 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:50:06.989Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/9058000000076011/environment 
+
+[debug] [2025-07-07T12:50:07.025Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:50:07 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2025-07-07T12:50:07.039Z] : 
+[info] [2025-07-07T12:50:07.040Z] : Executing predeploy script in D:\pdf-extract\pythonResumeReaderBackend-main\appsail-python
+[debug] [2025-07-07T12:50:07.040Z] : Executing command > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[info] [2025-07-07T12:50:07.040Z] : > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[debug] [2025-07-07T12:50:07.187Z] : CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58) {
+  status: 500,
+  exit: 1,
+  original: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":13680,"stdout":null,"stderr":null,"error":null}
+      at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+      at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+      at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+      at Generator.next (<anonymous>)
+      at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58),
+  context: undefined,
+  errorId: 'EXEC-SCRIPT-4',
+  arg: [
+    '\x1B[1mpredeploy\x1B[22m',
+    '\x1B[3m\x1B[31m{\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "status": 9009,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "signal": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "output": [\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m    null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  ],\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "pid": 13680,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stdout": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "stderr": null,\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m  "error": null\x1B[39m\x1B[23m\n' +
+      '\x1B[3m\x1B[31m}\x1B[39m\x1B[23m'
+  ],
+  skipHelp: false,
+  fileName: 'C:\\Users\\Abcom\\AppData\\Roaming\\npm\\node_modules\\zcatalyst-cli\\lib\\execute-script'
+}
+[warn] [2025-07-07T12:50:07.188Z] : ‼ Deploy of AppSail [python-crawler] was unsuccessful since The script exited with code greater than 0 or an error
+[info] [2025-07-07T12:50:07.188Z] : 
+[error] [2025-07-07T12:50:07.189Z] : × appsail: deploy skipped
+[info] [2025-07-07T12:50:07.189Z] : 
+[error] [2025-07-07T12:50:07.189Z] : × No components deployed!
+[info] [2025-07-07T12:50:07.192Z] : 
+[error] [2025-07-07T12:50:07.192Z] : × Error: The script predeploy exited with the exit code greater than 0 or with an error.
+[debug] [2025-07-07T12:50:07.193Z] : Error Stack: CatalystError: The script exited with code greater than 0 or an error
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:60:15)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:50:07.193Z] : Original Error: Error: {"status":9009,"signal":null,"output":[null,null,null],"pid":13680,"stdout":null,"stderr":null,"error":null}
+    at executeCommand (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:62:23)
+    at executeHook (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:40:41)
+    at C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:190:17
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Abcom\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\deploy\features\appsail\index.js:5:58)
+[debug] [2025-07-07T12:50:07.193Z] : Error Status: 500
+[info] [2025-07-07T12:50:07.193Z] : 
+[error] [2025-07-07T12:50:07.193Z] : Execution Info: 
+{
+  "status": 9009,
+  "signal": null,
+  "output": [
+    null,
+    null,
+    null
+  ],
+  "pid": 13680,
+  "stdout": null,
+  "stderr": null,
+  "error": null
+}
+[info] [2025-07-07T12:50:07.193Z] : 
+[error] [2025-07-07T12:50:07.194Z] : REF: https://www.zoho.com/catalyst/help/scripts.html#Run
+[debug] [2025-07-07T12:50:07.194Z] : EXEC ENDED with event: deploy, message: success
+[debug] [2025-07-07T12:50:07.194Z] : TOTAL DURATION OF COMMAND EXEC : 437
+[debug] [2025-07-07T12:50:07.203Z] : >>>> HTTP REQUEST : POST https://api.catalyst.zoho.in/baas/v1/cli/logs 
+<request body omitted>
+
+[debug] [2025-07-07T12:50:07.295Z] : <<<< HTTP RESPONSE : 400
+Response Headers: {"server":"ZGS","date":"Mon, 07 Jul 2025 12:50:07 GMT","content-type":"application/json;charset=ISO-8859-1","content-length":"128","connection":"keep-alive","x-content-type-options":"nosniff","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-07-07T12:50:07.295Z] : Response Body : {"status":"failure","data":{"error_code":"INVALID_INPUT","message":"either the request body or parameters is in wrong format"}}
+
+[debug] [2025-07-07T12:50:07.296Z] : Unable to send debug log to server: HTTP Error: 400, either the request body or parameters is in wrong format
