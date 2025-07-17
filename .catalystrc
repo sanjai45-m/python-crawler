@@ -10,29 +10,17 @@
   "projects": [
     {
       "idx": 1,
-<<<<<<< HEAD
       "id": "9058000000076011",
       "name": "python-crawler",
       "domain": {
         "id": "50029182322",
         "name": "python-crawler-60031382506.development"
-=======
-      "id": "19358000000010151",
-      "name": "python-crawler",
-      "domain": {
-        "id": "50029181293",
-        "name": "python-crawler-60043472505.development"
->>>>>>> f1fdb7d21e3ff471be8e2d528a89b349d5917e33
       },
       "timezone": "Asia/Kolkata",
       "env": [
         {
           "idx": 1,
-<<<<<<< HEAD
           "id": "60031382506",
-=======
-          "id": "60043472505",
->>>>>>> f1fdb7d21e3ff471be8e2d528a89b349d5917e33
           "name": "Development",
           "type": 3
         }
